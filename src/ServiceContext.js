@@ -43,6 +43,9 @@ const ServiceProvider = ({ children }) => {
   };
   useEffect(() => {
     getPortfolioData();
+    setTimeout(() => {
+      if (utilData) getPortfolioData();
+    }, 3000);
     // getStyleData(process.env.REACT_APP_ARP_ROOT);
 
     // setTimeout(() => {
