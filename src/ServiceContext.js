@@ -37,15 +37,15 @@ const ServiceProvider = ({ children }) => {
     if (res.ok) {
       const result = await res.json();
 
-      setUtilData(result[0]);
-      console.log(result[0]);
+      setUtilData(result);
+      console.log(result);
     }
   };
   useEffect(() => {
     getPortfolioData();
-    setTimeout(() => {
-      if (utilData) getPortfolioData();
-    }, 3000);
+    // setTimeout(() => {
+    //   if (utilData) getPortfolioData();
+    // }, 3000);
     // getStyleData(process.env.REACT_APP_ARP_ROOT);
 
     // setTimeout(() => {
