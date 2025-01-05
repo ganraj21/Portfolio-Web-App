@@ -1,15 +1,24 @@
+import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import './index.css';
-import { BrowserRouter } from 'react-router-dom';
 import { ServiceProvider } from './ServiceContext';
 
-const root = createRoot(document.getElementById('root'));
+const rootElement = document.getElementById('root');
 
-root.render(
-  <ServiceProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ServiceProvider>
-);
+if (rootElement) {
+  const root = createRoot(rootElement);
+
+  root.render(
+    <React.StrictMode>
+      <ServiceProvider>
+        <Router>
+          <App />
+        </Router>
+      </ServiceProvider>
+    </React.StrictMode>
+  );
+} else {
+  console.error('Root element not found.');
+}
